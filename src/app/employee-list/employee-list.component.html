@@ -1,0 +1,24 @@
+<h2>Employees</h2>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>Postal Code</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let employee of employeeList">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.phone | checkPhoneNumber}}</td>
+        <td>{{employee.address.city}}</td>
+        <td>{{employee.address.address_line1}}</td>
+        <td>{{employee.address.address_line2}}</td>
+        <td>{{employee.address.postal_code}}</td>
+        <td>Edit</td>
+    </tr>
+</table>
