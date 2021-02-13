@@ -1,1 +1,22 @@
-<p>employee-form works!</p>
+<div>
+    <h2>{{ routeId ? 'Edit ' : 'Add '}} Employee</h2>
+</div>
+<form [formGroup]="employeeForm">
+    <input formControlName="name" type="text" placeholder="Name" name="Name"><br>
+    <div *ngIf="f.name.touched && f.name.invalid">
+        <div *ngIf="f.name.errors.required">Name is required.</div>
+        <div *ngIf="f.name.errors.minlength">Name should contain minimum 4 characters.</div>
+    </div>
+    <input formControlName="phone" type="text" placeholder="Phone Number" name="phone"><br>
+    <div *ngIf="f.phone.touched && f.phone.invalid">
+        <div *ngIf="f.phone.errors.required">Phone is required.</div>
+        <div *ngIf="f.phone.errors.pattern">Enter only number.</div>
+    </div>
+    <ng-container formGroupName='address'>
+        <input formControlName="city" type="text" placeholder="City" name="city"><br>
+        <input formControlName="address_line1" type="text" placeholder="Address Line 1" name="address_line1"><br>
+        <input formControlName="address_line2" type="text" placeholder="Address Line 2.." name="address_line2"><br>
+        <input formControlName="postal_code" type="text" placeholder="Postal Code" name="postal_code"><br>
+    </ng-container>
+    <button (click)="submitDetails()">Submit</button>
+</form>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './model/employee';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,26 @@ export class EmployeeService {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public addEmployee(emp: Employee): void {
+    emp.id = this.employeeList.length + 1;
+    this.employeeList.push(emp);
+    this.router.navigate(['/employees']);
+  }
+
+  public updateEmployee(id: number, employee: Employee): void {
+    employee.id = id;
+    this.employeeList.forEach((emp, i) => {
+      if (emp.id === id) {
+        this.employeeList.splice(i, 1, employee);
+      }
+    });
+    this.router.navigate(['/employees']);
+  }
+
+  public getEmployeeById(id: number): Employee {
+    return this.employeeList.find(emp => emp.id === id);
+  }
+
 }

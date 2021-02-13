@@ -14,3 +14,17 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  cursor: pointer;
+}
