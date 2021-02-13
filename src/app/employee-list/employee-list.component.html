@@ -1,5 +1,13 @@
 <h2>Employees</h2>
 
+<div>
+    <form [formGroup]="searchFormGroup">
+        <input formControlName="search" type="text" placeholder="Search.." name="search">
+    </form>
+</div>
+<br>
+<button type="button" [routerLink]="['add']">Add New</button>
+<br>
 <table>
     <tr>
         <th>Id</th>
@@ -19,6 +27,6 @@
         <td>{{employee.address.address_line1}}</td>
         <td>{{employee.address.address_line2}}</td>
         <td>{{employee.address.postal_code}}</td>
-        <td>Edit</td>
+        <td><a [routerLink]="[employee.id,'edit']">Edit</a></td>
     </tr>
 </table>
