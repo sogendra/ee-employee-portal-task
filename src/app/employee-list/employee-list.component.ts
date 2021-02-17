@@ -38,7 +38,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   }
 
   private searchEmployees(res: string): void {
-    (res) ? this.employeeList = [...this.employeeService.employeeList].filter(emp => emp.name === res || emp.address.city === res)
+    (res) ? this.employeeList = [...this.employeeService.employeeList].filter(emp => emp.name.toUpperCase().includes(res.toUpperCase()) || emp.address.city.toUpperCase().includes(res.toUpperCase()))
       : this.employeeList = [...this.employeeService.employeeList];
   }
 
